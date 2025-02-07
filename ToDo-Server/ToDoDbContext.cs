@@ -11,7 +11,7 @@ public partial class ToDoDbContext : DbContext
     }
 
     public ToDoDbContext(DbContextOptions<ToDoDbContext> options)
-        : base(options)
+        : base(options) 
     {
     }
 
@@ -29,16 +29,10 @@ public partial class ToDoDbContext : DbContext
         modelBuilder.Entity<Item>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PRIMARY");
+
             entity.ToTable("items");
 
-            // אם רוצים לוודא ש-Name לא יהיה null
-            entity.Property(e => e.Name)
-                .IsRequired() // מבטיח ש-Name יהיה שדה חובה
-                .HasMaxLength(100);
-
-            // אם רוצים לוודא ש-IsComplete לא יהיה null
-            entity.Property(e => e.IsComplete)
-                .IsRequired(); // מבטיח ש-IsComplete יהיה שדה חובה
+            entity.Property(e => e.Name).HasMaxLength(100);
         });
 
         OnModelCreatingPartial(modelBuilder);

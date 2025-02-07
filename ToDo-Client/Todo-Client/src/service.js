@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const apiUrl = "http://localhost:5000/tasks/{id}";
+const apiUrl = "http://localhost:5080";
 axios.defaults.baseURL = apiUrl;
 
 axios.interceptors.response.use(
