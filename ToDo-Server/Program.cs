@@ -85,6 +85,6 @@ app.MapDelete("/tasks/{id}", async (int id, ToDoDbContext context) =>
     return Results.NoContent();
 });
 
-app.MapGet("/", () => "Hello World!");
+app.MapGet("/", () => "Hello ToDo-Server is running BS"D!");
 
 app.Run();
